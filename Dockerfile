@@ -10,8 +10,6 @@ RUN apt update \
  
  RUN apt-get -f install -y
 
-COPY snapclient /etc/default/snapsclient
-
 ENV TZ=America/Toronto
 
 ENTRYPOINT ["snapclient"]
