@@ -1,7 +1,4 @@
-ARG BUILD_FROM=debian:buster-slim
-
-FROM $BUILD_FROM
-
+FROM arm32v7/debian:buster-slim 
 COPY qemu-arm-static /usr/bin
 
 RUN apt update \
@@ -12,7 +9,5 @@ RUN wget https://github.com/badaix/snapcast/releases/download/v0.25.0/snapclient
 RUN dpkg -i --force-all 'snapclient_0.25.0-1_armhf.deb'
  
 RUN apt-get -f install -y
-
-ENV TZ=America/Toronto
 
 ENTRYPOINT ["snapclient"]
