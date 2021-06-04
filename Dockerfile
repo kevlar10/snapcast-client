@@ -2,6 +2,8 @@ ARG BUILD_FROM=debian:buster-slim
 
 FROM $BUILD_FROM
 
+COPY qemu-arm-static /usr/bin
+
 RUN apt update \
  && apt install -y wget
  
