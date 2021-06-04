@@ -1,5 +1,4 @@
-#ARG BUILD_FROM=debian:buster-slim
-ARG BUILD_FROM=arm32v7/debian:buster-slim
+ARG BUILD_FROM=debian:buster-slim
 
 FROM $BUILD_FROM
 
