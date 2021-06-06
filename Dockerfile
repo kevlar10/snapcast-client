@@ -3,7 +3,7 @@ COPY qemu-arm-static /usr/bin
 
 RUN echo "http://alpine.northrepo.ca/edge/community" >> /etc/apk/repositories
 
-RUN apk update
+RUN apk update \
  && apk add snapcast-client
 
 ENTRYPOINT ["snapclient"]
