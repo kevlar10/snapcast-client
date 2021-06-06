@@ -4,6 +4,6 @@ COPY qemu-arm-static /usr/bin
 RUN echo "http://alpine.northrepo.ca/edge/community" >> /etc/apk/repositories
 
 RUN apk update \
- && apk add snapcast-client
+ && apk add snapcast-client pulseaudio pulseaudio-alsa
 
 ENTRYPOINT ["snapclient"]
