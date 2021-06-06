@@ -1,9 +1,13 @@
-FROM arm32v7/alpine:latest
+FROM arm32v7/debian:buster-slim 
 COPY qemu-arm-static /usr/bin
 
-RUN echo "http://alpine.northrepo.ca/edge/community" >> /etc/apk/repositories
+RUN apt update \
+ && apt install -y wget
+ 
+RUN wget https://github.com/badaix/snapcast/releases/download/v0.25.0/snapclient_0.25.0-1_armhf.deb
 
-RUN apk update \
- && apk add snapcast-client pulseaudio pulseaudio-alsa alsa-plugins-pulse
+RUN dpkg -i --force-all 'snapclient_0.25.0-1_armhf.deb'
+ 
+RUN apt-get -f install -y
 
 ENTRYPOINT ["snapclient"]
